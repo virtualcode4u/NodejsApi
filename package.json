@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/sahaniraja/NodejsApi/issues"
   },
-  "homepage": "https://github.com/sahaniraja/NodejsApi#readme"
+  "homepage": "https://github.com/sahaniraja/NodejsApi#readme",
+  "dependencies": {
+    "express": "^4.18.1"
+  }
 }
