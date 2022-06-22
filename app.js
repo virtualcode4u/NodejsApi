@@ -1,11 +1,12 @@
-const express = require('express');
+const express=require('express');
 const app = express();
+app.use(express.json());
+
 
 app.get('/',(req,res)=>{
-res.send('Hello World');
-res.end();
+	res.send('Welcome to NodeQuiz');
 });
 
-const PORT = process.env.PORT || 5000;
 
-app.listen(PORT,console.log(`Server started on port ${PORT}`));
+const port = process.env.PORT || 8080;
+app.listen(port,()=>console.log(`Listening on port ${port}`));
