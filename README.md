@@ -1,3 +1,3 @@
 # NodejsApi
 
-https://www.buymeacoffee.com/rstechnology
+https://www.buymeacoffee.com/sahaniraja
