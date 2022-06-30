@@ -4,7 +4,7 @@ app.use(express.json());
 
 
 app.get('/',(req,res)=>{
-	res.send('Welcome to NodeQuiz');
+	res.send('Welcome to NodejsApi');
 });
 
 
