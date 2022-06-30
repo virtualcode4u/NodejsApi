@@ -7,21 +7,21 @@ const app = express();
 //app.use(express.json());
 
 
-const dbUrl = 'mongodb+srv://admin:D9ihAcWWH1N6vAlG@cluster0.2wp8ctn.mongodb.net/onlinequiz?retryWrites=true&w=majority';
+// const dbUrl = 'mongodb+srv://admin:D9ihAcWWH1N6vAlG@cluster0.2wp8ctn.mongodb.net/onlinequiz?retryWrites=true&w=majority';
 
 //Routes = 
 //const category = require('./routes/category');
 
 //Database Connection
-console.log(process.env.MONGO_URL)
-mongoose.connect(dbUrl,{
-	useNewUrlParser: true,
-	useUnifiedTopology: true,
-}).then(()=>{
-console.info("Databaese connected Start Working")
-}).catch((e)=>{
-	console.log("Error :", e)
-})
+// console.log(process.env.MONGO_URL)
+// mongoose.connect(dbUrl,{
+// 	useNewUrlParser: true,
+// 	useUnifiedTopology: true,
+// }).then(()=>{
+// console.info("Databaese connected Start Working")
+// }).catch((e)=>{
+// 	console.log("Error :", e)
+// })
 
 
 //Middleware
