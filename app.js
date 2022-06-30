@@ -1,8 +1,8 @@
 //require('dotenv').config();
 const express = require('express');
-const mongoose = require('mongoose');
+//const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
-const cors = require('cors');
+//const cors = require('cors');
 const app = express();
 //app.use(express.json());
 
@@ -25,8 +25,8 @@ const app = express();
 
 
 //Middleware
-app.use(bodyParser.json());
-app.use(cors());
+//app.use(bodyParser.json());
+//app.use(cors());
 
 //Routes
 //app.use('/api',category);
