@@ -22,6 +22,43 @@ mongoose.connect(process.env.MONGO_URL,{
 	res.send('Welcome to MongoDB');
 });
 	
+const userSchema = require('../Models/userSchema');
+
+app.post('/register',async()=>{
+	try{
+		
+	const {
+		name,
+		mobileno,
+		email,
+		password,
+		cnfpassword
+	} = req.body;
+
+	if(password === cnfpassword){
+		const userData = new userSchema({
+		name,
+	mobileno,
+email,
+password,
+cnfpassword
+	});
+	userSchema.save(err=>{
+	if(err){
+		console.log('Error');
+	} else{
+		res.render('register',{title:'Done',password:'',email:''});
+	}
+})
+	} else{
+	res.render('register',{title:'',password:'Password not match',email:''});		
+	}
+
+	}catch(error){
+		res.render('register',{title:'Error in code',password:'',email:''});
+	}
+});
+
 app.post("/getsumdetails", function(req, res) {
  
   res.send("You will get a sum using this" + req.body.name);
