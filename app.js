@@ -18,6 +18,9 @@ mongoose.connect(process.env.MONGO_URL,{
 	useNewUrlParser: true,
 	useUnifiedTopology: true,
 }).then(()=>{
+	app.get('/',(req,res)=>{
+	res.send('Welcome to NodeQuiz');
+});
 console.log("Databaese connected Start Working")
 }).catch((e)=>{
 	console.log("Error :", e)
@@ -32,9 +35,9 @@ app.use(cors());
 //app.use('/api',category);
 
 
-app.get('/',(req,res)=>{
-	res.send('Welcome to NodeQuiz');
-});
+// app.get('/',(req,res)=>{
+// 	res.send('Welcome to NodeQuiz');
+// });
 
 
 const port = process.env.PORT || 8080;
