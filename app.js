@@ -51,7 +51,7 @@ Router.post('/register',async(req,res)=>{
              }
          })
        
-    const useremail = await homeSchema.findOne({email:email});
+    const useremail = await userSchema.findOne({email:email});
      if(email === useremail.email){
         res.send('register',{title :'',password:'',email:'Email is Already there plz chose different one'})
      }else{
