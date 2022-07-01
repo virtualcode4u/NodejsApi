@@ -7,7 +7,7 @@ const app = express();
 //app.use(express.json());
 
 
-//const dbUrl = 'mongodb+srv://admin:D9ihAcWWH1N6vAlG@cluster0.2wp8ctn.mongodb.net/onlinequiz?retryWrites=true&w=majority';
+//const dbUrl = 'mongodb+srv://username:Password@cluster0.2wp8ctn.mongodb.net/Databasename?retryWrites=true&w=majority';
 
 //Routes = 
 //const category = require('./routes/category');
