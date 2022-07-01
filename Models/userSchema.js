@@ -6,10 +6,10 @@ name:{
 type:String,
 required:true
 },
-mobile:{
+mobileno:{
 type:Number,
 required:true,
-}
+},
 email:{
 type:String,
 unique:true,
