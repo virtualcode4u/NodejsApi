@@ -18,7 +18,7 @@ mongoose.connect(process.env.MONGO_URL,{
 	useNewUrlParser: true,
 	useUnifiedTopology: true,
 }).then(()=>{
-console.info("Databaese connected Start Working")
+console.log("Databaese connected Start Working")
 }).catch((e)=>{
 	console.log("Error :", e)
 })
