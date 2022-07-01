@@ -45,7 +45,7 @@ app.post('/register',async(req,res)=>{
          })
          userData.save(err=>{
              if(err){
-		     res.send("If Try Block");
+		     res.send("If Try Block"+err);
                 console.log("err")
              }else{
 		     res.send("Else Try Block");
