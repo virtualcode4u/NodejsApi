@@ -53,12 +53,12 @@ app.post('/register',async(req,res)=>{
              }
          })
        
-//     const useremail = await userSchema.findOne({email:email});
-//      if(email === useremail.email){
-//         res.send('register',{title :'',password:'',email:'Email is Already there plz chose different one'})
-//      }else{
-//          console.log('err')
-//      }
+    const useremail = await userSchema.findOne({email:email});
+     if(email === useremail.email){
+        res.send('register',{title :'',password:'',email:'Email is Already there plz chose different one'})
+     }else{
+         console.log('err')
+     }
 
     }else{
         res.send('register',{title :'',password:'Password not Matching',email:''})
