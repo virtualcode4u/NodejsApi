@@ -24,7 +24,7 @@ mongoose.connect(process.env.MONGO_URL,{
 	
 app.post("/getsumdetails", function(req, res) {
  
-  res.send("You will get a sum using this" + req.name);
+  res.send("You will get a sum using this" + req.body.name);
 })
 	
 console.log("Databaese connected Start Working")
