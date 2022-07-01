@@ -22,13 +22,9 @@ mongoose.connect(process.env.MONGO_URL,{
 	res.send('Welcome to MongoDB');
 });
 	
-app.post("/getsum", function(req, res) {
-  var num1 = Number(req.body.num1);
-  var num2 = Number(req.body.num2);
-    
-  var result = num1 ;
-    
-  res.send("Addition - " + result);
+app.get("/getsumdetails", function(req, res) {
+ 
+  res.send("You will get a sum using this");
 })
 	
 console.log("Databaese connected Start Working")
