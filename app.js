@@ -35,7 +35,7 @@ app.post('/register',async(req,res)=>{
            cpassword
        } = req.body;
 
-//     if(password === cpassword ){
+     if(password === cpassword ){
        
 //          const userData = new userSchema({
 //             name,
@@ -58,9 +58,9 @@ app.post('/register',async(req,res)=>{
 //          console.log('err')
 //      }
 
-//     }else{
-//         res.send('register',{title :'',password:'Password not Matching',email:''})
-//     }
+    }else{
+        res.send('register',{title :'',password:'Password not Matching',email:''})
+    }
 	   res.send("Try Block");
    }catch(error){
 
