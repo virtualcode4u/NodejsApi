@@ -27,43 +27,44 @@ mongoose.connect(process.env.MONGO_URL,{
 
 app.post('/register',async(req,res)=>{
    try{
-       const {
-           name,
-           mobileno,
-           email,
-           password,
-           cpassword
-       } = req.body;
+//        const {
+//            name,
+//            mobileno,
+//            email,
+//            password,
+//            cpassword
+//        } = req.body;
 
-    if(password === cpassword ){
+//     if(password === cpassword ){
        
-         const userData = new userSchema({
-            name,
-            mobileno,
-            email,
-            password
-         })
-         userData.save(err=>{
-             if(err){
-                console.log("err")
-             }else{
-                res.send('register',{title :'Done',password:'',email:''})
-             }
-         })
+//          const userData = new userSchema({
+//             name,
+//             mobileno,
+//             email,
+//             password
+//          })
+//          userData.save(err=>{
+//              if(err){
+//                 console.log("err")
+//              }else{
+//                 res.send('register',{title :'Done',password:'',email:''})
+//              }
+//          })
        
-    const useremail = await userSchema.findOne({email:email});
-     if(email === useremail.email){
-        res.send('register',{title :'',password:'',email:'Email is Already there plz chose different one'})
-     }else{
-         console.log('err')
-     }
+//     const useremail = await userSchema.findOne({email:email});
+//      if(email === useremail.email){
+//         res.send('register',{title :'',password:'',email:'Email is Already there plz chose different one'})
+//      }else{
+//          console.log('err')
+//      }
 
-    }else{
-        res.send('register',{title :'',password:'Password not Matching',email:''})
-    }
+//     }else{
+//         res.send('register',{title :'',password:'Password not Matching',email:''})
+//     }
+	   res.send("Try Block");
    }catch(error){
 
-    res.send('register',{title :'Error in Code',password:'',email:''})
+    res.send('Catch Block')
    }
 })
 	//getsumdetails
