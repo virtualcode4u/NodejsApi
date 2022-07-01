@@ -25,42 +25,48 @@ mongoose.connect(process.env.MONGO_URL,{
 	
 
 
-app.post('/register',async (req,res)=>{
-	try{
-		
-	const {
-		name,
-		mobileno,
-		email,
-		password,
-		cnfpassword
-	} = req.body;
+Router.post('/register',async(req,res)=>{
+   try{
+       const {
+           name,
+           mobileno,
+           email,
+           password,
+           cpassword
+       } = req.body;
 
-	if(password === cnfpassword){
-		const userData = new userSchema({
-		name,
-	mobileno,
-email,
-password,
-cnfpassword
-	});
-	userSchema.save(err=>{
-	if(err){
-		console.log('Error');
-	} else{
-		res.render('register',{title:'Done',password:'',email:''});
-	}
+    if(password === cpassword ){
+       
+         const userData = new userSchema({
+            name,
+            mobileno,
+            email,
+            password
+         })
+         userData.save(err=>{
+             if(err){
+                console.log("err")
+             }else{
+                res.render('register',{title :'Done',password:'',email:''})
+             }
+         })
+       
+    const useremail = await homeSchema.findOne({email:email});
+     if(email === useremail.email){
+        res.render('register',{title :'',password:'',email:'Email is Already there plz chose different one'})
+     }else{
+         console.log('err')
+     }
+
+    }else{
+        res.render('register',{title :'',password:'Password not Matching',email:''})
+    }
+   }catch(error){
+
+    res.render('register',{title :'Error in Code',password:'',email:''})
+   }
 })
-	} else{
-	res.render('register',{title:'',password:'Password not match',email:''});		
-	}
-	res.send('Under Try Block');
-	}catch(error){
-		res.send('Undet Catch Block');
-		//res.render('register',{title:'Error in code',password:'',email:''});
-	}
-});
-
+	//getsumdetails
 app.post("/getsumdetails", function(req, res) {
  
   res.send("You will get a sum using this" + req.body.name);
