@@ -27,13 +27,13 @@ mongoose.connect(process.env.MONGO_URL,{
 
 app.post('/register',async(req,res)=>{
    try{
-//        const {
-//            name,
-//            mobileno,
-//            email,
-//            password,
-//            cpassword
-//        } = req.body;
+       const {
+           name,
+           mobileno,
+           email,
+           password,
+           cpassword
+       } = req.body;
 
 //     if(password === cpassword ){
        
@@ -64,7 +64,7 @@ app.post('/register',async(req,res)=>{
 	   res.send("Try Block");
    }catch(error){
 
-    res.send('Catch Block')
+    res.send('register',{title :'Error in Code',password:'',email:''})
    }
 })
 	//getsumdetails
