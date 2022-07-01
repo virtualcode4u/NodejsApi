@@ -45,8 +45,10 @@ app.post('/register',async(req,res)=>{
          })
          userData.save(err=>{
              if(err){
+		     res.send("If Try Block");
                 console.log("err")
              }else{
+		     res.send("Else Try Block");
                 res.send('register',{title :'Done',password:'',email:''})
              }
          })
@@ -57,10 +59,10 @@ app.post('/register',async(req,res)=>{
 //      }else{
 //          console.log('err')
 //      }
-res.send("If Try Block");
+
     }else{
         res.send('register',{title :'',password:'Password not Matching',email:''})
-	    res.send("Else Try Block");
+	    
     }
 	   
    }catch(error){
