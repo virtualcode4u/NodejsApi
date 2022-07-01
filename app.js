@@ -47,23 +47,23 @@ Router.post('/register',async(req,res)=>{
              if(err){
                 console.log("err")
              }else{
-                res.render('register',{title :'Done',password:'',email:''})
+                res.send('register',{title :'Done',password:'',email:''})
              }
          })
        
     const useremail = await homeSchema.findOne({email:email});
      if(email === useremail.email){
-        res.render('register',{title :'',password:'',email:'Email is Already there plz chose different one'})
+        res.send('register',{title :'',password:'',email:'Email is Already there plz chose different one'})
      }else{
          console.log('err')
      }
 
     }else{
-        res.render('register',{title :'',password:'Password not Matching',email:''})
+        res.send('register',{title :'',password:'Password not Matching',email:''})
     }
    }catch(error){
 
-    res.render('register',{title :'Error in Code',password:'',email:''})
+    res.send('register',{title :'Error in Code',password:'',email:''})
    }
 })
 	//getsumdetails
