@@ -19,7 +19,7 @@ mongoose.connect(process.env.MONGO_URL,{
 	useUnifiedTopology: true,
 }).then(()=>{
 	app.get('/',(req,res)=>{
-	res.send('Welcome to NodeQuiz');
+	res.send('Welcome to MongoDB');
 });
 console.log("Databaese connected Start Working")
 }).catch((e)=>{
