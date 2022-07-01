@@ -22,4 +22,4 @@ required:true
 
 });
 
-module.exports = mongoose.model('RegisterUser',userSchema);
+module.exports = mongoose.model('regusers',userSchema);
