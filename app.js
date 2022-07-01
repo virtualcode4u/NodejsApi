@@ -57,11 +57,12 @@ app.post('/register',async(req,res)=>{
 //      }else{
 //          console.log('err')
 //      }
-
+res.send("If Try Block");
     }else{
         res.send('register',{title :'',password:'Password not Matching',email:''})
+	    res.send("Else Try Block");
     }
-	   res.send("Try Block");
+	   
    }catch(error){
 
     res.send('register',{title :'Error in Code',password:'',email:''})
