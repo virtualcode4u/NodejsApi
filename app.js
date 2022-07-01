@@ -28,35 +28,36 @@ mongoose.connect(process.env.MONGO_URL,{
 app.post('/register',async (req,res)=>{
 	try{
 		
-	const {
-		name,
-		mobileno,
-		email,
-		password,
-		cnfpassword
-	} = req.body;
+// 	const {
+// 		name,
+// 		mobileno,
+// 		email,
+// 		password,
+// 		cnfpassword
+// 	} = req.body;
 
-	if(password === cnfpassword){
-		const userData = new userSchema({
-		name,
-	mobileno,
-email,
-password,
-cnfpassword
-	});
-	userSchema.save(err=>{
-	if(err){
-		console.log('Error');
-	} else{
-		res.render('register',{title:'Done',password:'',email:''});
-	}
-})
-	} else{
-	res.render('register',{title:'',password:'Password not match',email:''});		
-	}
-
+// 	if(password === cnfpassword){
+// 		const userData = new userSchema({
+// 		name,
+// 	mobileno,
+// email,
+// password,
+// cnfpassword
+// 	});
+// 	userSchema.save(err=>{
+// 	if(err){
+// 		console.log('Error');
+// 	} else{
+// 		res.render('register',{title:'Done',password:'',email:''});
+// 	}
+// })
+// 	} else{
+// 	res.render('register',{title:'',password:'Password not match',email:''});		
+// 	}
+	res.send('Under Try Block');
 	}catch(error){
-		res.render('register',{title:'Error in code',password:'',email:''});
+		res.send('Undet Catch Block');
+		//res.render('register',{title:'Error in code',password:'',email:''});
 	}
 });
 
