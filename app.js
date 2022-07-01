@@ -37,19 +37,19 @@ app.post('/register',async(req,res)=>{
 
      if(password === cpassword ){
        
-//          const userData = new userSchema({
-//             name,
-//             mobileno,
-//             email,
-//             password
-//          })
-//          userData.save(err=>{
-//              if(err){
-//                 console.log("err")
-//              }else{
-//                 res.send('register',{title :'Done',password:'',email:''})
-//              }
-//          })
+         const userData = new userSchema({
+            name,
+            mobileno,
+            email,
+            password
+         })
+         userData.save(err=>{
+             if(err){
+                console.log("err")
+             }else{
+                res.send('register',{title :'Done',password:'',email:''})
+             }
+         })
        
 //     const useremail = await userSchema.findOne({email:email});
 //      if(email === useremail.email){
