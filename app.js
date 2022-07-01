@@ -25,7 +25,7 @@ mongoose.connect(process.env.MONGO_URL,{
 	
 
 
-app.post('/register',async()=>{
+app.post('/register',async (req,res)=>{
 	try{
 		
 	const {
