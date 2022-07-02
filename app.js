@@ -34,9 +34,9 @@ app.post('/addcategory',async(req,res)=>{
 
         addCat.save(err=>{
             if(err){
-                res.send(err);
+                res.send(req.body+err);
             } else{
-                res.send('Category added successfully!!!')
+                res.send('Category added successfully!!!' + req.body)
             }
         })
 
