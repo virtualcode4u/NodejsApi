@@ -27,35 +27,25 @@ mongoose.connect(process.env.MONGO_URL,{
 //Add a Category
 app.post('/addcategory',async(req,res)=>{
     try{
-        const {
-            catname,
-            catdesc,
-            isrecclsd,
-            created_by,
-            created_at,
-            updated_by,
-            updated_at
-        } = req.body;
-
         const addCat =  new categorySchema({
-            catname,
-            catdesc,
-            isrecclsd,
-            created_by,
-            created_at,
-            updated_by,
-            updated_at
+            catname : req.body.catname,
+            catdesc : req.body.catdesc,
+            isrecclsd : req.body.isrecclsd,
+            created_by : req.body.created_by,
+            created_at : req.body.created_at,
+            updated_by : req.body.updated_by,
+            updated_at : req.body.updated_at,
         })
         //res.send(req.body);
-        addCat.save(err=>{
-            if(err){
-
-                res.send("Some Error"+req.body+err);
-            } else{
+        addCat.save((err,doc)=>{
+            if(!err){
                 res.send('Category added successfully!!! Done' + req.body)
+                
+            } else{
+                res.send("Some Error"+req.body+err);
             }
         })
-        res.send('Not Done');
+        
         
 
     }catch(error){
