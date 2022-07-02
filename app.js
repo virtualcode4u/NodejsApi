@@ -30,6 +30,11 @@ app.post('/addcategory',async(req,res)=>{
         const addCat =  new categorySchema({
             catname,
             catdesc,
+            isrecclsd,
+            created_by,
+            created_at,
+            updated_by,
+            updated_at
         });
 
         addCat.save(err=>{
