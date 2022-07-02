@@ -66,7 +66,7 @@ app.post('/addsubcategory',async(req,res)=>{
             updated_at : new Date(),
         });
         //res.send(req.body);
-        addCat.save((err,doc)=>{
+        addsubCat.save((err,doc)=>{
             if(!err){
                 res.send('Sub Category added successfully!!! Done' + req.body)
                 
