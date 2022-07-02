@@ -23,8 +23,17 @@ mongoose.connect(process.env.MONGO_URL,{
 	res.send('Welcome to MongoDB');
 });
 	
+//Add a Category
+app.post('/addcategory',async(req,res)=>{
+    try{
+        res.send(req.body);
+    }catch(error){
+        res.send(error);
+    };
+})
 
 
+//Registration of Users
 app.post('/register',async(req,res)=>{
    try{
        const {
@@ -70,6 +79,7 @@ app.post('/register',async(req,res)=>{
     res.send('register',{title :'Error in Code',password:'',email:''})
    }
 })
+//End of Registration of Users
 	//getsumdetails
 app.post("/getsumdetails", function(req, res) {
  
