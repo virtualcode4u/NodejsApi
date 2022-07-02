@@ -16,7 +16,7 @@ const categorySchema = new schema({
     },
     created_by: {
         type: String, 
-        required:true,
+        required:false,
     },
     created_at: {
         type: Date, 
@@ -24,7 +24,7 @@ const categorySchema = new schema({
     },
     updated_by: {
         type: String, 
-        required:true,
+        required:false,
     },
     updated_at: {
         type: Date, 
