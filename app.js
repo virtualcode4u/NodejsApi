@@ -35,7 +35,7 @@ app.post('/addcategory',async(req,res)=>{
             created_at : req.body.created_at,
             updated_by : req.body.updated_by,
             updated_at : req.body.updated_at,
-        })
+        });
         //res.send(req.body);
         addCat.save((err,doc)=>{
             if(!err){
