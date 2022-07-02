@@ -32,9 +32,9 @@ app.post('/addcategory',async(req,res)=>{
             catdesc : req.body.catdesc,
             isrecclsd : req.body.isrecclsd,
             created_by : req.body.created_by,
-            created_at : req.body.created_at,
+            created_at : new Date(),
             updated_by : req.body.updated_by,
-            updated_at : req.body.updated_at,
+            updated_at : new Date(),
         });
         //res.send(req.body);
         addCat.save((err,doc)=>{
