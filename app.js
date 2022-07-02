@@ -2,6 +2,7 @@ require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const userSchema = require('./Models/userSchema');
+const categorySchema = require('./Models/categorySchema');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const app = express();
@@ -26,7 +27,21 @@ mongoose.connect(process.env.MONGO_URL,{
 //Add a Category
 app.post('/addcategory',async(req,res)=>{
     try{
+        const addCat =  new categorySchema({
+            catname,
+            catdesc,
+        });
+
+        addCat.save(err=>{
+            if(err){
+                res.send(err);
+            } else{
+                res.send('Category added successfully!!!')
+            }
+        })
+
         res.send(req.body);
+
     }catch(error){
         res.send(error);
     };
