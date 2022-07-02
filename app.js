@@ -3,6 +3,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const userSchema = require('./Models/userSchema');
 const categorySchema = require('./Models/categorySchema');
+const subcategorySchema = require('./Models/subcategorySchema');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const app = express();
@@ -44,9 +45,35 @@ app.post('/addcategory',async(req,res)=>{
             } else{
                 res.send("Some Error"+req.body+err);
             }
-        })
-        
-        
+        })      
+
+    }catch(error){
+        res.send(error);
+    };
+})
+
+//Add a SubCategory
+app.post('/addsubcategory',async(req,res)=>{
+    try{
+        const addsubCat =  new subcategorySchema({
+            category : req.body.category,
+            subcatname : req.body.subcatname,
+            subcatdesc : req.body.subcatdesc,
+            isrecclsd : req.body.isrecclsd,
+            created_by : req.body.created_by,
+            created_at : new Date(),
+            updated_by : req.body.updated_by,
+            updated_at : new Date(),
+        });
+        //res.send(req.body);
+        addCat.save((err,doc)=>{
+            if(!err){
+                res.send('Sub Category added successfully!!! Done' + req.body)
+                
+            } else{
+                res.send("Some Error"+req.body+err);
+            }
+        })      
 
     }catch(error){
         res.send(error);
