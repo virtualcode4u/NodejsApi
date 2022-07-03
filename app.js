@@ -52,7 +52,7 @@ app.post('/addcategory',async(req,res)=>{
 })
 
 //Get All Category
-app.get('getcategory',async(req,res)=>{
+app.get('/getcategory',async(req,res)=>{
     try{
         categorySchema.find().then((res)=>{
             res.send(res);
