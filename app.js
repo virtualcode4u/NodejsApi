@@ -60,6 +60,15 @@ app.get('/getcategory',async(req,res)=>{
     })
 })
 
+//Get Category By Id
+app.get('/getcategory/:id',async(req,res)=>{
+    categorySchema.findById(req.params.id).then((result)=>{
+        res.send(result);
+    }).catch((error)=>{
+    res.status(500).json({message:error.message});
+})
+})
+
 //Add a SubCategory
 app.post('/addsubcategory',async(req,res)=>{
     try{
