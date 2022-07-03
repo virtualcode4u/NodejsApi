@@ -53,8 +53,8 @@ app.post('/addcategory',async(req,res)=>{
 
 //Get All Category
 app.get('/getcategory',async(req,res)=>{
-        categorySchema.find().then((res)=>{
-            res.send(res);
+        categorySchema.find().then((result)=>{
+            res.send(result);
         }).catch((error)=>{
         res.status(500).json({message:error.message});
     })
