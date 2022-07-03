@@ -53,13 +53,11 @@ app.post('/addcategory',async(req,res)=>{
 
 //Get All Category
 app.get('/getcategory',async(req,res)=>{
-    try{
         categorySchema.find().then((res)=>{
             res.send(res);
-        }).catch()
-    }catch(error){
+        }).catch((error)=>{
         res.status(500).json({message:error.message});
-    }
+    })
 })
 
 //Add a SubCategory
