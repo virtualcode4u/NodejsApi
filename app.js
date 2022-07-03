@@ -66,7 +66,7 @@ app.get('/getcategory/:id',async(req,res)=>{
         res.send(result);
     }).catch((error)=>{
     res.status(500).json({message:error.message});
-})
+    })
 })
 
 //Add a SubCategory
@@ -97,6 +97,23 @@ app.post('/addsubcategory',async(req,res)=>{
     };
 })
 
+//Get All SubCategory
+app.get('/getsubcategory',async(req,res)=>{
+    subcategorySchema.find().then((result)=>{
+        res.send(result);
+    }).catch((error)=>{
+    res.status(500).json({message:error.message});
+})
+})
+
+//Get SubCategory By Id
+app.get('/getsubcategory/:id',async(req,res)=>{
+    subcategorySchema.findById(req.params.id).then((result)=>{
+    res.send(result);
+    }).catch((error)=>{
+    res.status(500).json({message:error.message});
+    })
+})
 
 //Registration of Users
 app.post('/register',async(req,res)=>{
