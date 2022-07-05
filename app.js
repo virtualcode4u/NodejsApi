@@ -108,7 +108,7 @@ app.get('/getsubcategory',async(req,res)=>{
 
 //Get SubCategory By Id
 app.get('/getsubcategory/:id',async(req,res)=>{
-    subcategorySchema.findById(req.params.id).then((result)=>{
+    subcategorySchema.find({category:req.params.id}).then((result)=>{
     res.send(result);
     }).catch((error)=>{
     res.status(500).json({message:error.message});
