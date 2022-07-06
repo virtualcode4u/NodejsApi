@@ -157,9 +157,34 @@ app.get('/getsubcategory/:id',async(req,res)=>{
 //     res.send('register',{title :'Error in Code',password:'',email:''})
 //    }
 
-app.post('/login',async(req,res)=>{
-    res.send(req.body);
+app.post('/register',async(req,res)=>{
+        try{
+         res.send(req.body);
+        const addUser =  new userSchema({
+            firstname : req.body.firstname,
+            lastname : req.body.lastname,
+            mobileno: req.body.mobileno,
+            email : req.body.email,
+            password : req.body.password,
+            status:'0',
+            created_by : req.body.created_by,
+            created_at : new Date(),
+            updated_by : req.body.updated_by,
+            updated_at : new Date(),
+        });
+        addUser.save((err,doc)=>{
+            if(!err){
+                res.send('Register Successfully');
+            } else{
+                res.send("Unable to process try again" + err);
+            }
+        })
+    }catch(error){
+        res.send("catch errror"+error+"ERRRRRRRRRRRRR "+ req);
+    };
     });
+
+
 
 })
 //End of Registration of Users
