@@ -2,7 +2,11 @@ const mongoose = require('mongoose');
 
 const schema = mongoose.Schema;
 const userSchema = new schema({
-    name:{
+    fname:{
+        type:String,
+        required:true
+    },
+    lname:{
         type:String,
         required:true
     },
@@ -19,6 +23,16 @@ const userSchema = new schema({
         type:String,
         required:true
     },
+    state:{
+        type:String,
+        required:false
+    },
+    city:{
+    type:String,
+        required:false
+    },
+    
+    
 })
 
 module.exports = mongoose.model('Registeruser',userSchema )
