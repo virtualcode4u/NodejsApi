@@ -10,10 +10,7 @@ const userSchema = new schema({
         type:String,
         required:true
     },
-    mobileno:{
-        type:Number,
-        required:true
-    },
+    
     email:{
         type:String,
         unique:true,
