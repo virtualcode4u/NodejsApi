@@ -159,7 +159,7 @@ app.get('/getsubcategory/:id',async(req,res)=>{
 })
 //End of Registration of Users
 app.post('/register',async(req,res)=>{
-    res.send(req);
+    res.send("Req Successfull");
 });
 //Login
 app.post('/login',async(req,res)=>{
