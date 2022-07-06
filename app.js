@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const userSchema = require('./Models/userSchema');
 const categorySchema = require('./Models/categorySchema');
 const subcategorySchema = require('./Models/subcategorySchema');
+const userSchema = require('./Models/userSchema');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const userSchema = require('./Models/userSchema');
