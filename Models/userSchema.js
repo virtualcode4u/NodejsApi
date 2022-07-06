@@ -16,7 +16,7 @@ const userSchema = new schema({
     },
     email:{
         type:String,
-         unique:true,
+        unique:true,
         required:true
     },
     password:{
@@ -28,7 +28,7 @@ const userSchema = new schema({
         required:false
     },
     city:{
-    type:String,
+        type:String,
         required:false
     },
     status:{

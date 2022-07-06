@@ -7,7 +7,6 @@ const subcategorySchema = require('./Models/subcategorySchema');
 const userSchema = require('./Models/userSchema');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const userSchema = require('./Models/userSchema');
 const app = express();
 //app.use(express.json());
 
@@ -161,24 +160,28 @@ app.get('/getsubcategory/:id',async(req,res)=>{
 })
 //End of Registration of Users
 app.post('/register',async(req,res)=>{
-    const addUser =  new userSchema({
-        email : req.body.email,
-        fname : req.body.firstname,
-        lname : req.body.lastname,
-        mobileno: req.body.mobileno,
-        password : req.body.password,
-        created_by : req.body.created_by,
-        created_at : new Date(),
-        updated_by : req.body.updated_by,
-        updated_at : new Date(),
-    });
-    addUser.save((err,doc)=>{
-        if(!err){
-            res.send('Register Successfully');
-        } else{
-            res.send("Unable to process try again" + err);
-        }
-    })
+    try{
+        const addUser =  new userSchema({
+            email : req.body.email,
+            fname : req.body.firstname,
+            lname : req.body.lastname,
+            mobileno: req.body.mobileno,
+            password : req.body.password,
+            created_by : req.body.created_by,
+            created_at : new Date(),
+            updated_by : req.body.updated_by,
+            updated_at : new Date(),
+        });
+        addUser.save((err,doc)=>{
+            if(!err){
+                res.send('Register Successfully');
+            } else{
+                res.send("Unable to process try again" + err);
+            }
+        })
+    }catch(error){
+        res.send(error);
+    };
 });
 //Login
 app.post('/login',async(req,res)=>{
