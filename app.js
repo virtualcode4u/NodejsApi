@@ -182,7 +182,7 @@ app.post('/register',async(req,res)=>{
             }
         })
     }catch(error){
-        res.send(error);
+        res.send("catch errror"+error);
     };
 });
 //Login
