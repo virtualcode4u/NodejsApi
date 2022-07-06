@@ -159,6 +159,7 @@ app.get('/getsubcategory/:id',async(req,res)=>{
 })
 //End of Registration of Users
 app.post('/register',async(req,res)=>{
+    res.send("Welcome" + res);
     try{
         // res.send("Under Try Block");
         const addUser =  new userSchema({
