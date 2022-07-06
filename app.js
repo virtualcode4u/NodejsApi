@@ -17,7 +17,7 @@ const app = express();
 
 //Database Connection
 console.log(process.env.MONGO_URL)
-mongoose.connect(process.env.MONGO_URL,{
+const dbConnect = mongoose.connect(process.env.MONGO_URL,{
 	useNewUrlParser: true,
 	useUnifiedTopology: true,
 }).then(()=>{
@@ -156,17 +156,22 @@ app.get('/getsubcategory/:id',async(req,res)=>{
 
 //     res.send('register',{title :'Error in Code',password:'',email:''})
 //    }
+
+app.post('/login',async(req,res)=>{
+    res.send(req.body);
+    });
+
 })
 //End of Registration of Users
-app.post('/register',async(req,res)=>{
+// app.post('/register',async(req,res)=>{
     
-    const addUser =  new userSchema({
-              firstname : req.body.firstname,
-               lastname : req.body.lastname,
-    });
-    req.body = addUser;
+//     const addUser =  new userSchema({
+//               firstname : req.body.firstname,
+//                lastname : req.body.lastname,
+//     });
+//     req.body = addUser;
 
-    res.send(req.body);
+//     res.send(req.body);
     
     // try{
     //     // res.send("Under Try Block");
@@ -192,11 +197,9 @@ app.post('/register',async(req,res)=>{
     // }catch(error){
     //     res.send("catch errror"+error+"ERRRRRRRRRRRRR "+ req);
     // };
-});
+//});
 //Login
-app.post('/login',async(req,res)=>{
-res.send(req.body);
-});
+
 
 // console.log("Databaese connected Start Working")
 // }).catch((e)=>{
