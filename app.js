@@ -115,6 +115,7 @@ app.get('/getsubcategory/:id',async(req,res)=>{
     })
 })
 
+
 //Registration of Users
 
 // app.post('/register',async(req,res)=>{
@@ -157,7 +158,9 @@ app.get('/getsubcategory/:id',async(req,res)=>{
 //    }
 })
 //End of Registration of Users
-
+app.post('/register',async(req,res)=>{
+    console.log(req.body);
+});
 //Login
 app.post('/login',async(req,res)=>{
 console.log(req.body);
