@@ -184,7 +184,7 @@ app.post('/register',async(req,res)=>{
             }
         })
     }catch(error){
-        res.send("catch errror"+error+"ERRRRRRRRRRRRR "+ req);
+        res.send(error);
     };
     });
 
