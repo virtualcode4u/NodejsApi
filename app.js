@@ -117,9 +117,9 @@ app.get('/getsubcategory/:id',async(req,res)=>{
 
 //Registration of Users
 app.post('/register',async(req,res)=>{
-   try{
+   
        console.log(req.body);
-
+})
 //      if(password === cpassword ){
        
 //          const userData = new userSchema({
@@ -150,10 +150,10 @@ app.post('/register',async(req,res)=>{
 	    
 //     }
 	   
-   }catch(error){
+//    }catch(error){
 
-    res.send('register',{title :'Error in Code',password:'',email:''})
-   }
+//     res.send('register',{title :'Error in Code',password:'',email:''})
+//    }
 })
 //End of Registration of Users
 
