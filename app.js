@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const userSchema = require('./Models/userSchema');
 const categorySchema = require('./Models/categorySchema');
 const subcategorySchema = require('./Models/subcategorySchema');
-//const userSchema = require('./Models/userSchema');
+const userSchema = require('./Models/userSchema');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const app = express();
@@ -159,9 +159,9 @@ app.get('/getsubcategory/:id',async(req,res)=>{
 //    }
 })
 //End of Registration of Users
-// app.post('/register',async(req,res)=>{
-//     try{
-//         res.send("Under Try Block");
+app.post('/register',async(req,res)=>{
+    try{
+        res.send("Under Try Block");
 //         // const addUser =  new userSchema({
 //         //     email : req.body.email,
 //         //     fname : req.body.firstname,
@@ -180,10 +180,10 @@ app.get('/getsubcategory/:id',async(req,res)=>{
 //         //         res.send("Unable to process try again" + err);
 //         //     }
 //         // })
-//     }catch(error){
-//         res.send(error);
-//     };
-// });
+    }catch(error){
+        res.send(error);
+    };
+});
 //Login
 app.post('/login',async(req,res)=>{
 res.send(req.body);

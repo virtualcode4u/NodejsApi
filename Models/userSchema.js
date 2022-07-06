@@ -2,11 +2,11 @@ const mongoose = require('mongoose');
 
 const schema = mongoose.Schema;
 const userSchema = new schema({
-    fname:{
+    firntname:{
         type:String,
         required:true
     },
-    lname:{
+    lastname:{
         type:String,
         required:true
     },
@@ -33,10 +33,11 @@ const userSchema = new schema({
     },
     status:{
         type:String,
+        require:false
     },
     created_by: {
         type: String, 
-        required:true,
+        required:true
     },
     created_at: {
         type: Date, 
@@ -44,14 +45,12 @@ const userSchema = new schema({
     },
     updated_by: {
         type: String, 
-        required:true,
+        required:true
     },
     updated_at: {
         type: Date, 
         default: Date.now
-    },
-    
-    
+    },    
 })
 
-module.exports = mongoose.model('Registeruser',userSchema )
+module.exports = mongoose.model('user',userSchema )
