@@ -159,7 +159,7 @@ app.get('/getsubcategory/:id',async(req,res)=>{
 
 app.post('/register',async(req,res)=>{
         try{
-         res.send(req.body);
+         res.send(req.body.firstname);
         const addUser =  new userSchema({
             firstname : req.body.firstname,
             lastname : req.body.lastname,
