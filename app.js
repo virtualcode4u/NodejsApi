@@ -6,6 +6,8 @@ const categorySchema = require('./Models/categorySchema');
 const subcategorySchema = require('./Models/subcategorySchema');
 const bodyParser = require('body-parser');
 const cors = require('cors');
+const bcrypt = require('bcryptjs');
+
 const app = express();
 //app.use(express.json());
 
@@ -160,12 +162,14 @@ app.get('/getsubcategory/:id',async(req,res)=>{
 app.post('/register',async(req,res)=>{
         try{
          //res.send(req.body.firstname);
+         
+
         const addUser =  new userSchema({
             firstname : req.body.firstname,
             lastname : req.body.lastname,
             mobileno: req.body.mobileno,
             email : req.body.email,
-            password : req.body.password,
+            password : bcrypt.hash(req.body.password,10),
             status:'0',
             created_by : req.body.created_by,
             created_at : new Date(),
