@@ -116,10 +116,11 @@ app.get('/getsubcategory/:id',async(req,res)=>{
 })
 
 //Registration of Users
-app.post('/register',async(req,res)=>{
+
+// app.post('/register',async(req,res)=>{
    
-       console.log(req.body);
-})
+//        console.log(req.body);
+// })
 //      if(password === cpassword ){
        
 //          const userData = new userSchema({
@@ -162,10 +163,10 @@ app.post('/login',async(req,res)=>{
 console.log(req.body);
 });
 
-console.log("Databaese connected Start Working")
-}).catch((e)=>{
-	console.log("Error :", e)
-})
+// console.log("Databaese connected Start Working")
+// }).catch((e)=>{
+// 	console.log("Error :", e)
+// })
 
 
 //Middleware
