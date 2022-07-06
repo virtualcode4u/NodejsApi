@@ -172,13 +172,13 @@ app.post('/register',async(req,res)=>{
             updated_by : req.body.updated_by,
             updated_at : new Date(),
         });
-        addUser.save((err,doc)=>{
-            if(!err){
-                res.send('Register Successfully');
-            } else{
-                res.send("Unable to process try again" + err);
-            }
-        })
+        // addUser.save((err,doc)=>{
+        //     if(!err){
+        //         res.send('Register Successfully');
+        //     } else{
+        //         res.send("Unable to process try again" + err);
+        //     }
+        // })
     }catch(error){
         res.send(error);
     };
