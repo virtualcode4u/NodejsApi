@@ -169,7 +169,7 @@ app.post('/register',async(req,res)=>{
             lastname : req.body.lastname,
             mobileno: req.body.mobileno,
             email : req.body.email,
-            password : bcrypt.hash(req.body.password,10),
+            password : await bcrypt.hash(req.body.password,10),
             status:'0',
             created_by : req.body.created_by,
             created_at : new Date(),
