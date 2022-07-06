@@ -159,11 +159,11 @@ app.get('/getsubcategory/:id',async(req,res)=>{
 })
 //End of Registration of Users
 app.post('/register',async(req,res)=>{
-    res.send(req.body);
+    res.send(req);
 });
 //Login
 app.post('/login',async(req,res)=>{
-console.log(req.body);
+res.send(req.body);
 });
 
 // console.log("Databaese connected Start Working")
