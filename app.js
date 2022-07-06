@@ -162,7 +162,6 @@ app.post('/register',async(req,res)=>{
     try{
         // res.send("Under Try Block");
         const addUser =  new userSchema({
-            
             firstname : req.body.firstname,
             lastname : req.body.lastname,
             mobileno: req.body.mobileno,
@@ -182,7 +181,7 @@ app.post('/register',async(req,res)=>{
             }
         })
     }catch(error){
-        res.send("catch errror"+error);
+        res.send("catch errror"+error+"ERRRRRRRRRRRRR "+ req);
     };
 });
 //Login
