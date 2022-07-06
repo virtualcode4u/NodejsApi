@@ -163,7 +163,9 @@ app.post('/register',async(req,res)=>{
     const addUser =  new userSchema({
               firstname : req.body.firstname,
                lastname : req.body.lastname,
-    }).req.body;
+    });
+    req.body = addUser;
+
     res.send(req.body);
     
     // try{
