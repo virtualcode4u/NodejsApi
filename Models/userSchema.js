@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const schema = mongoose.Schema;
-const usrmstSchema = new schema({
+const userSchema = new schema({
     catname:{
         type:String,
         unique:true,
@@ -33,4 +33,4 @@ const usrmstSchema = new schema({
 })
 
 
-module.exports = mongoose.model('usermst',usrmstSchema )
+module.exports = mongoose.model('users',userSchema )
