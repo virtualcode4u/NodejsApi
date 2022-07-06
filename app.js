@@ -163,7 +163,7 @@ app.post('/register',async(req,res)=>{
         // res.send("Under Try Block");
         const addUser =  new userSchema({
             
-            firstname : req.body.fname,
+            firstname : req.body.firstname,
             lastname : req.body.lastname,
             mobileno: req.body.mobileno,
             email : req.body.email,
