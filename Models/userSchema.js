@@ -2,17 +2,30 @@ const mongoose = require('mongoose');
 
 const schema = mongoose.Schema;
 const userSchema = new schema({
-    catname:{
+    firstname:{
         type:String,
         unique:true,
         required:true
     },
-    catdesc:{
+    lastname:{
         type:String,
         required:true
     },
-    isrecclsd:{
+    mobileno:{
         type:String,
+        required:true
+    },
+    email:{
+        type:String,
+        required:true
+    },
+    password:{
+        type:String,
+        required:true
+    },
+    status:{
+        type:String,
+        required:true
     },
     created_by: {
         type: String, 
