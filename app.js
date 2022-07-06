@@ -150,10 +150,10 @@ app.post('/register',async(req,res)=>{
 	    
 //     }
 	   
-//    }catch(error){
+   }catch(error){
 
-//     res.send('register',{title :'Error in Code',password:'',email:''})
-//    }
+    res.send('register',{title :'Error in Code',password:'',email:''})
+   }
 })
 //End of Registration of Users
 
