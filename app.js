@@ -118,52 +118,50 @@ app.get('/getsubcategory/:id',async(req,res)=>{
 //Registration of Users
 app.post('/register',async(req,res)=>{
    try{
-       const {
-           name,
-           mobileno,
-           email,
-           password,
-           cpassword
-       } = req.body;
+       console.log(req.body);
 
-     if(password === cpassword ){
+//      if(password === cpassword ){
        
-         const userData = new userSchema({
-            name,
-            mobileno,
-            email,
-            password
-         })
-         userData.save(err=>{
-             if(err){
-		     res.send("If Try Block"+err);
-                console.log("err")
-             }else{
-		     res.send("Else Try Block");
-                res.send('register',{title :'Done',password:'',email:''})
-             }
-         })
+//          const userData = new userSchema({
+//             name,
+//             mobileno,
+//             email,
+//             password
+//          })
+//          userData.save(err=>{
+//              if(err){
+// 		     res.send("If Try Block"+err);
+//                 console.log("err")
+//              }else{
+// 		     res.send("Else Try Block");
+//                 res.send('register',{title :'Done',password:'',email:''})
+//              }
+//          })
        
-    const useremail = await userSchema.findOne({email:email});
-     if(email === useremail.email){
-        res.send('register',{title :'',password:'',email:'Email is Already there plz chose different one'})
-     }else{
-         console.log('err')
-     }
+//     const useremail = await userSchema.findOne({email:email});
+//      if(email === useremail.email){
+//         res.send('register',{title :'',password:'',email:'Email is Already there plz chose different one'})
+//      }else{
+//          console.log('err')
+//      }
 
-    }else{
-        res.send('register',{title :'',password:'Password not Matching',email:''})
+//     }else{
+//         res.send('register',{title :'',password:'Password not Matching',email:''})
 	    
-    }
+//     }
 	   
-   }catch(error){
+//    }catch(error){
 
-    res.send('register',{title :'Error in Code',password:'',email:''})
-   }
+//     res.send('register',{title :'Error in Code',password:'',email:''})
+//    }
 })
 //End of Registration of Users
 
-	
+//Login
+app.post('/login',async(req,res)=>{
+console.log(req.body);
+});
+
 console.log("Databaese connected Start Working")
 }).catch((e)=>{
 	console.log("Error :", e)
