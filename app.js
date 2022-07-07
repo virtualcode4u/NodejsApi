@@ -156,7 +156,7 @@ app.post('/login',async(req,res)=>{
         })
         res.send("Welcome to Login screen");
     }catch(error){
-        res.send(error);
+        res.send("Some Error"+error);
     }
 });
 
