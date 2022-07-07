@@ -123,7 +123,7 @@ app.post('/register',async(req,res)=>{
         try{
             const {firstname, lastname,mobileno,email,password,status,created_by,updated_by} = req.body;
             userSchema.findOne({email:email},(err,user)=>{
-                if(user){
+                if(userSchema){
                     res.send('User is already registered!!!');
                 } else{
                     const addUser = new userSchema({
@@ -131,7 +131,7 @@ app.post('/register',async(req,res)=>{
                         lastname,
                         mobileno,
                         email,
-                        password : await bcrypt.hash(req.body.password,10),
+                        password : await bcrypt.hash(password,10),
                         status,
                         created_by,
                         created_at:new Date(),
