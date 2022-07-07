@@ -7,7 +7,7 @@ const subcategorySchema = require('./Models/subcategorySchema');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const bcrypt = require('bcryptjs');
-const jwt = require('jsonwebtoken');
+const Jwt = require('jsonwebtoken');
 const jwtKey = 'how-r-u';
 
 const app = express();
@@ -169,7 +169,7 @@ app.post('/login',async(req,res)=>{
       // check user password with hashed password stored in the database
       const validPassword = await bcrypt.compare(body.password, user.password);
       if (validPassword) {
-        jwt.sign({user},{jwtKey}, {expiresIn:"1h"},(err,token)=>{
+        Jwt.sign({user},jwtKey, {expiresIn:"1h"},(err,token)=>{
             if(err){
                 res.send("Something went wrong try again later!")
             } else{
