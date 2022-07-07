@@ -174,8 +174,8 @@ app.post('/register',async(req,res)=>{
 app.post('/login',async(req,res)=>{
     try{
         // let getpassword = await bcrypt.hash(req.params.password,10);
-        const {email,password} = req.body;
-        let password = await bcrypt.hash(req.body.password,10);
+        //const {email,password} = req.body;
+        //let password = await bcrypt.hash(req.body.password,10);
         // userSchema.findOne({email:email,password:password},(err,getdetail)=>{
         //     if(getdetail){
         //         if(password===getdetail.password){
@@ -187,6 +187,7 @@ app.post('/login',async(req,res)=>{
         //         res.send("User is not registered!!!" + err)
         //     }
         // })
+        res.send("Try Block");
     }catch(error){
         res.send("Some Error"+error);
     }
