@@ -124,7 +124,7 @@ app.post('/register',async(req,res)=>{
             //let password = await bcrypt.hash(req.body.password,10)
             const {firstname, lastname,mobileno,email,password,status,created_by,updated_by} = req.body;
             userSchema.findOne({email:email},(err,user)=>{
-                if(userSchema){
+                if(user){
                     res.send('User is already registered!!!');
                 } else{
                     res.send(req.body);
