@@ -128,7 +128,7 @@ app.post('/register',async(req,res)=>{
                 if(user){
                     res.send('User is already registered!!!');
                 } else{
-                    res.send(req.body);
+                    //res.send(req.body);
                     //let password = await bcrypt.hash(req.body.password,10)
                     const addUser = new userSchema({
                         firstname,
@@ -142,13 +142,13 @@ app.post('/register',async(req,res)=>{
                         updated_by,
                         updated_at:new Date(),
                     });
-                    // addUser.save((err,doc)=>{
-                    //     if(!err){
-                    //         res.send('Register Successfully');
-                    //     } else{
-                    //         res.send("Unable to process try again" + err);
-                    //     }
-                    // })
+                    addUser.save((err,doc)=>{
+                        if(!err){
+                            res.send('Register Successfully');
+                        } else{
+                            res.send("Unable to process try again" + err);
+                        }
+                    })
                 }
             })
             
