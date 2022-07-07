@@ -169,7 +169,7 @@ app.post('/login',async(req,res)=>{
       // check user password with hashed password stored in the database
       const validPassword = await bcrypt.compare(body.password, user.password);
       if (validPassword) {
-        jwt.sign({user},{jwtKey}, {expiresIs:"1h"},(err,token)=>{
+        jwt.sign({user},{jwtKey}, {expiresIn:"1h"},(err,token)=>{
             if(err){
                 res.send("Something went wrong try again later!")
             } else{
