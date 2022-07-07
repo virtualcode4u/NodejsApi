@@ -152,19 +152,7 @@ app.post('/register',async(req,res)=>{
                 }
             })
             
-        // const addUser =  new userSchema({
-        //     firstname : req.body.firstname,
-        //     lastname : req.body.lastname,
-        //     mobileno: req.body.mobileno,
-        //     email : req.body.email,
-        //     password : await bcrypt.hash(req.body.password,10),
-        //     status:'0',
-        //     created_by : req.body.created_by,
-        //     created_at : new Date(),
-        //     updated_by : req.body.updated_by,
-        //     updated_at : new Date(),
-        // });
-        
+       
     }catch(error){
         res.send(error);
     };
