@@ -178,7 +178,7 @@ app.post('/login',async(req,res)=>{
         
         userSchema.findOne({email:email},(err,getdetail)=>{
             if(getdetail){
-                let password = await bcrypt.hash(req.body.password,10)
+                //let password = await bcrypt.hash(req.body.password,10)
                 if(password===getdetail.password){
                     res.send("Login Successfull")
                 } else{
