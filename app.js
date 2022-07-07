@@ -187,7 +187,6 @@ app.post('/login',async(req,res)=>{
                 res.send("User is not registered!!!" + err)
             }
         })
-        res.send(req.body);
     }catch(error){
         res.send("Some Error"+error);
     }
