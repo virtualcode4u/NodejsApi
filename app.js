@@ -150,7 +150,7 @@ app.post('/login',async(req,res)=>{
     try{
         let getpassword = req.params.password;
         userSchema.find({email:req.params.name,password:getpassword}).then((result)=>{
-            res.send(result):
+            res.send(result);
         }).catch((err)=>{
             res.status(500).json({message:error.message})
         })
