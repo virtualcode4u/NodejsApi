@@ -127,18 +127,18 @@ app.post('/register',async(req,res)=>{
                     res.send('User is already registered!!!');
                 } else{
                     res.send("Try");
-                    // const addUser = new userSchema({
-                    //     firstname,
-                    //     lastname,
-                    //     mobileno,
-                    //     email,
-                    //     password : await bcrypt.hash(password,10),
-                    //     status,
-                    //     created_by,
-                    //     created_at:new Date(),
-                    //     updated_by,
-                    //     updated_at:new Date(),
-                    // });
+                    const addUser = new userSchema({
+                        firstname,
+                        lastname,
+                        mobileno,
+                        email,
+                        password : await bcrypt.hash(password,10),
+                        status,
+                        created_by,
+                        created_at:new Date(),
+                        updated_by,
+                        updated_at:new Date(),
+                    });
                     // addUser.save((err,doc)=>{
                     //     if(!err){
                     //         res.send('Register Successfully');
