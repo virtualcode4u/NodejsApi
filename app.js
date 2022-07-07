@@ -7,6 +7,8 @@ const subcategorySchema = require('./Models/subcategorySchema');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken');
+const jwtKey = process.env.JWT_KEY;
 
 const app = express();
 //app.use(express.json());
@@ -126,6 +128,7 @@ app.post('/register',async(req,res)=>{
             let password = await bcrypt.hash(req.body.password,10)
             await userSchema.findOne({email:email},(err,user)=>{
                 if(user){
+                    
                     res.send('User is already registered!!!');
                 } else{
                     //res.send(req.body);
@@ -166,7 +169,15 @@ app.post('/login',async(req,res)=>{
       // check user password with hashed password stored in the database
       const validPassword = await bcrypt.compare(body.password, user.password);
       if (validPassword) {
-        res.status(200).json({ message: "Login Successfull", user: user });
+        jwt.sign({user},{jwtKey}, {expiresIs:"1h"},(err,token)=>{
+            if(err){
+                res.send("Something went wrong try again later!")
+            } else{
+                res.status(200).json(user,{app:token});
+            }
+            
+        });
+
       } else {
         res.status(400).json({ error: "Password is incorrect" });
       }
