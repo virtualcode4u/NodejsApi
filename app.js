@@ -8,7 +8,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-const jwtKey = process.env.JWT_KEY;
+const jwtKey = 'how-r-u';
 
 const app = express();
 //app.use(express.json());
@@ -20,7 +20,7 @@ const app = express();
 //const category = require('./routes/category');
 
 //Database Connection
-console.log(process.env.MONGO_URL)
+//console.log(process.env.MONGO_URL)
 const dbConnect = mongoose.connect(process.env.MONGO_URL,{
 	useNewUrlParser: true,
 	useUnifiedTopology: true,
