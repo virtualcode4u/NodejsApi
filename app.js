@@ -166,9 +166,9 @@ app.post('/login',async(req,res)=>{
       // check user password with hashed password stored in the database
       const validPassword = await bcrypt.compare(body.password, user.password);
       if (validPassword) {
-        res.status(200).json({ message: "Valid password" });
+        res.status(200).json({ message: "Login Successfull", user: user });
       } else {
-        res.status(400).json({ error: "Invalid Password" });
+        res.status(400).json({ error: "Password is incorrect" });
       }
     } else {
       res.status(401).json({ error: "User does not exist" });
