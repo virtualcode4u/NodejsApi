@@ -172,26 +172,39 @@ app.post('/register',async(req,res)=>{
 
 //Login of Users
 app.post('/login',async(req,res)=>{
-    try{
-        // let getpassword = await bcrypt.hash(req.params.password,10);
-        const {email,password} = req.body;
-        
-        await userSchema.findOne({email:email},(err,getdetail)=>{
-            if(getdetail){
-                //let password = await bcrypt.hash(req.body.password,10)
-                const validPassword = await bcrypt.compare(password,getdetail.password)
-                if(validPassword){
-                    res.send("Login Successfull")
-                } else{
-                    res.send("Username or Password may be incorrect!!!")
-                }
-            } else{
-                res.send("User is not registered!!!" + err)
-            }
-        })
-    }catch(error){
-        res.send("Some Error"+error);
+    const body = req.body;
+    const user = await userSchema.findOne({ email: body.email });
+    if (user) {
+      // check user password with hashed password stored in the database
+      const validPassword = await bcrypt.compare(body.password, user.password);
+      if (validPassword) {
+        res.status(200).json({ message: "Valid password" });
+      } else {
+        res.status(400).json({ error: "Invalid Password" });
+      }
+    } else {
+      res.status(401).json({ error: "User does not exist" });
     }
+    // try{
+    //     // let getpassword = await bcrypt.hash(req.params.password,10);
+    //     const {email,password} = req.body;
+        
+    //     await userSchema.findOne({email:email},(err,getdetail)=>{
+    //         if(getdetail){
+    //             //let password = await bcrypt.hash(req.body.password,10)
+    //             const validPassword = await bcrypt.compare(password,getdetail.password)
+    //             if(validPassword){
+    //                 res.send("Login Successfull")
+    //             } else{
+    //                 res.send("Username or Password may be incorrect!!!")
+    //             }
+    //         } else{
+    //             res.send("User is not registered!!!" + err)
+    //         }
+    //     })
+    // }catch(error){
+    //     res.send("Some Error"+error);
+    // }
 });
 
 
