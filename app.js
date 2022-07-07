@@ -128,13 +128,13 @@ app.post('/register',async(req,res)=>{
                     res.send('User is already registered!!!');
                 } else{
                     res.send(req.body);
-                    let password = await bcrypt.hash(req.body.password,10)
+                    //let password = await bcrypt.hash(req.body.password,10)
                     const addUser = new userSchema({
                         firstname,
                         lastname,
                         mobileno,
                         email,
-                        password,
+                        password: await bcrypt.hash(password,10),
                         status,
                         created_by,
                         created_at:new Date(),
