@@ -145,11 +145,12 @@ app.post('/register',async(req,res)=>{
                         updated_at:new Date(),
                     });
                     addUser.save((err,doc)=>{
-                        if(!err){
-                            res.send('Register Successfully');
-                        } else{
-                            res.send("Unable to process try again" + err);
-                        }
+                        Jwt.sign({addUser},jwtKey, {expiresIn:"1h"},(err,token)=>{
+                            if(err){
+                                res.send("Something went wrong try again later!")
+                            } else{
+                                res.status(200).json({addUser,auth:token});
+                            }
                     })
                 }
             })
