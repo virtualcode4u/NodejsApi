@@ -173,7 +173,7 @@ app.post('/login',async(req,res)=>{
             if(err){
                 res.send("Something went wrong try again later!")
             } else{
-                res.status(200).json(user,{app:token});
+                res.status(200).json({user,app:token});
             }
             
         });
