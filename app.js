@@ -148,7 +148,7 @@ app.post('/register',async(req,res)=>{
 //Login of Users
 app.post('/login',async(req,res)=>{
     try{
-        let getpassword = req.params.password;
+        let getpassword = await bcrypt.hash(req.params.password,10);
         userSchema.find({email:req.params.name,password:getpassword}).then((result)=>{
             res.send(result);
         }).catch((err)=>{
