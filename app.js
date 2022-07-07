@@ -121,6 +121,7 @@ app.get('/getsubcategory/:id',async(req,res)=>{
 //Registration of Users
 app.post('/register',async(req,res)=>{
         try{
+            let password = await bcrypt.hash(req.body.password,10)
             const {firstname, lastname,mobileno,email,password,status,created_by,updated_by} = req.body;
             userSchema.findOne({email:email},(err,user)=>{
                 if(userSchema){
@@ -132,7 +133,7 @@ app.post('/register',async(req,res)=>{
                         lastname,
                         mobileno,
                         email,
-                        password : await bcrypt.hash(password,10),
+                        password,
                         status,
                         created_by,
                         created_at:new Date(),
