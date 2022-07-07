@@ -119,51 +119,8 @@ app.get('/getsubcategory/:id',async(req,res)=>{
 
 
 //Registration of Users
-
-// app.post('/register',async(req,res)=>{
-   
-//        console.log(req.body);
-// })
-//      if(password === cpassword ){
-       
-//          const userData = new userSchema({
-//             name,
-//             mobileno,
-//             email,
-//             password
-//          })
-//          userData.save(err=>{
-//              if(err){
-// 		     res.send("If Try Block"+err);
-//                 console.log("err")
-//              }else{
-// 		     res.send("Else Try Block");
-//                 res.send('register',{title :'Done',password:'',email:''})
-//              }
-//          })
-       
-//     const useremail = await userSchema.findOne({email:email});
-//      if(email === useremail.email){
-//         res.send('register',{title :'',password:'',email:'Email is Already there plz chose different one'})
-//      }else{
-//          console.log('err')
-//      }
-
-//     }else{
-//         res.send('register',{title :'',password:'Password not Matching',email:''})
-	    
-//     }
-	   
-//    }catch(error){
-
-//     res.send('register',{title :'Error in Code',password:'',email:''})
-//    }
-
 app.post('/register',async(req,res)=>{
         try{
-         //res.send(req.body.firstname);
-         
-
         const addUser =  new userSchema({
             firstname : req.body.firstname,
             lastname : req.body.lastname,
@@ -188,52 +145,26 @@ app.post('/register',async(req,res)=>{
     };
     });
 
+//Login of Users
+app.post('/login',async(req,res)=>{
+    try{
+        let getpassword = req.params.password;
+        userSchema.find({email:req.params.name,password:getpassword}).then((result)=>{
+            res.send(result):
+        }).catch((err)=>{
+            res.status(500).json({message:error.message})
+        })
+        res.send("Welcome to Login screen");
+    }catch(error){
+        res.send(error);
+    }
+});
+
+
 
 
 })
-//End of Registration of Users
-// app.post('/register',async(req,res)=>{
-    
-//     const addUser =  new userSchema({
-//               firstname : req.body.firstname,
-//                lastname : req.body.lastname,
-//     });
-//     req.body = addUser;
 
-//     res.send(req.body);
-    
-    // try{
-    //     // res.send("Under Try Block");
-    //     const addUser =  new userSchema({
-    //         firstname : req.body.firstname,
-    //         lastname : req.body.lastname,
-    //         mobileno: req.body.mobileno,
-    //         email : req.body.email,
-    //         password : req.body.password,
-    //         status:'0',
-    //         created_by : req.body.created_by,
-    //         created_at : new Date(),
-    //         updated_by : req.body.updated_by,
-    //         updated_at : new Date(),
-    //     });
-    //     addUser.save((err,doc)=>{
-    //         if(!err){
-    //             res.send('Register Successfully');
-    //         } else{
-    //             res.send("Unable to process try again" + err);
-    //         }
-    //     })
-    // }catch(error){
-    //     res.send("catch errror"+error+"ERRRRRRRRRRRRR "+ req);
-    // };
-//});
-//Login
-
-
-// console.log("Databaese connected Start Working")
-// }).catch((e)=>{
-// 	console.log("Error :", e)
-// })
 
 
 //Middleware
@@ -243,10 +174,6 @@ app.use(cors());
 //Routes
 //app.use('/api',category);
 
-
-// app.get('/',(req,res)=>{
-// 	res.send('Welcome to NodeQuiz');
-// });
 
 
 const port = process.env.PORT || 8080;
