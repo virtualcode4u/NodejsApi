@@ -175,18 +175,18 @@ app.post('/login',async(req,res)=>{
     try{
         // let getpassword = await bcrypt.hash(req.params.password,10);
         const {email,password} = req.body;
-        let password = await bcrypt.hash(req.body.password,10)
-        // userSchema.findOne({email:email,password:password},(err,getdetail)=>{
-        //     if(getdetail){
-        //         if(password===getdetail.password){
-        //             res.send("Login Successfull")
-        //         } else{
-        //             res.send("Username or Password may be incorrect!!!")
-        //         }
-        //     } else{
-        //         res.send("User is not registered!!!" + err)
-        //     }
-        // })
+        //let password = await bcrypt.hash(req.body.password,10)
+        userSchema.findOne({email:email,password:password},(err,getdetail)=>{
+            if(getdetail){
+                if(password===getdetail.password){
+                    res.send("Login Successfull")
+                } else{
+                    res.send("Username or Password may be incorrect!!!")
+                }
+            } else{
+                res.send("User is not registered!!!" + err)
+            }
+        })
         res.send(req.body);
     }catch(error){
         res.send("Some Error"+error);
