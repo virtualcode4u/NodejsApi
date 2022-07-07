@@ -175,7 +175,7 @@ app.post('/login',async(req,res)=>{
     try{
         // let getpassword = await bcrypt.hash(req.params.password,10);
         const {email,password} = req.body;
-        let password = await bcrypt.hash(req.body.password,10);
+        let password = await bcrypt.hash(req.body.password,10)
         // userSchema.findOne({email:email,password:password},(err,getdetail)=>{
         //     if(getdetail){
         //         if(password===getdetail.password){
