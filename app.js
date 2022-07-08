@@ -155,41 +155,11 @@ app.post('/register',async(req,res)=>{
                                     res.send("Unable to process try again" + err);
                                 }
                             })
-                            res.status(200).json({addUser,auth:token});
+                            res.status(200).json({addUser,token:token});
                         }
                     });
-
-                    
                // res.status(401).json({ error: "User does not exist" });
               }
-           // userSchema.findOne({email:email},(err,user)=>{
-            //     res.send("Wait Coming"+err)
-            //     // if(user){
-                    
-            //     //     res.send('User is already registered!!!');
-            //     // } else{
-            //     //     //res.send(req.body);
-            //     //      const addUser = new userSchema({
-            //     //         firstname,
-            //     //         lastname,
-            //     //         mobileno,
-            //     //         email,
-            //     //         password,
-            //     //         status,
-            //     //         created_by,
-            //     //         created_at:new Date(),
-            //     //         updated_by,
-            //     //         updated_at:new Date(),
-            //     //     });
-            //     //     addUser.save((err,doc)=>{
-            //     //         if(!err){
-            //     //             res.send('Register Successfully');
-            //     //         } else{
-            //     //             res.send("Unable to process try again" + err);
-            //     //         }
-            //     //     })
-            //      }
-            // })
             
     }catch(error){
         res.send(error);
