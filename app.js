@@ -127,31 +127,31 @@ app.post('/register',async(req,res)=>{
             const {firstname, lastname,mobileno,email,status,created_by,updated_by} = req.body;
             let password = await bcrypt.hash(req.body.password,10)
             await userSchema.findOne({email:email},(err,user)=>{
-                if(user){
+                // if(user){
                     
-                    res.send('User is already registered!!!');
-                } else{
-                    //res.send(req.body);
-                     const addUser = new userSchema({
-                        firstname,
-                        lastname,
-                        mobileno,
-                        email,
-                        password,
-                        status,
-                        created_by,
-                        created_at:new Date(),
-                        updated_by,
-                        updated_at:new Date(),
-                    });
-                    addUser.save((err,doc)=>{
-                        if(!err){
-                            res.send('Register Successfully');
-                        } else{
-                            res.send("Unable to process try again" + err);
-                        }
-                    })
-                }
+                //     res.send('User is already registered!!!');
+                // } else{
+                //     //res.send(req.body);
+                //      const addUser = new userSchema({
+                //         firstname,
+                //         lastname,
+                //         mobileno,
+                //         email,
+                //         password,
+                //         status,
+                //         created_by,
+                //         created_at:new Date(),
+                //         updated_by,
+                //         updated_at:new Date(),
+                //     });
+                //     addUser.save((err,doc)=>{
+                //         if(!err){
+                //             res.send('Register Successfully');
+                //         } else{
+                //             res.send("Unable to process try again" + err);
+                //         }
+                //     })
+                // }
             })
             
        
