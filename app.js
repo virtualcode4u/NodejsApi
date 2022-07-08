@@ -8,7 +8,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const bcrypt = require('bcryptjs');
 const Jwt = require('jsonwebtoken');
-const jwtKey = 'how-r-u';
+const jwtKey = process.env.JWT_KEY;
 
 const app = express();
 //app.use(express.json());
