@@ -155,7 +155,6 @@ app.post('/register',async(req,res)=>{
             //      }
              })
             
-       res.send(req.body);
     }catch(error){
         res.send(error);
     };
