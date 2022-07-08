@@ -126,7 +126,7 @@ app.post('/register',async(req,res)=>{
             //let password = await bcrypt.hash(req.body.password,10)
             const {firstname, lastname,mobileno,email,status,created_by,updated_by} = req.body;
             let password = await bcrypt.hash(req.body.password,10)
-            // await userSchema.findOne({email:email},(err,user)=>{
+            userSchema.findOne({email:email},(err,user)=>{
             //     res.send("Wait Coming"+err)
             //     // if(user){
                     
@@ -152,8 +152,8 @@ app.post('/register',async(req,res)=>{
             //     //             res.send("Unable to process try again" + err);
             //     //         }
             //     //     })
-            //     // }
-            // })
+            //      }
+             })
             
        res.send(req.body);
     }catch(error){
