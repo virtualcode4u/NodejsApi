@@ -143,13 +143,23 @@ app.post('/register',async(req,res)=>{
                         updated_by,
                         updated_at:new Date(),
                     });
-                    addUser.save((err,doc)=>{
-                                    if(!err){
-                                        res.send('Register Successfully');
-                                    } else{
-                                        res.send("Unable to process try again" + err);
-                                    }
-                                })
+
+                    Jwt.sign({addUser},jwtKey, {expiresIn:"1h"},(err,token)=>{
+                        if(err){
+                            res.send("Something went wrong try again later!")
+                        } else{
+                            addUser.save((err,doc)=>{
+                                if(!err){
+                                    res.send('Register Successfully');
+                                } else{
+                                    res.send("Unable to process try again" + err);
+                                }
+                            })
+                            res.status(200).json({addUser,auth:token});
+                        }
+                    });
+
+                    
                // res.status(401).json({ error: "User does not exist" });
               }
            // userSchema.findOne({email:email},(err,user)=>{
