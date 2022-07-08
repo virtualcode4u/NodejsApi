@@ -124,7 +124,7 @@ app.get('/getsubcategory/:id',async(req,res)=>{
 app.post('/register',async(req,res)=>{
         try{
             //let password = await bcrypt.hash(req.body.password,10)
-           // const {firstname, lastname,mobileno,email,status,created_by,updated_by} = req.body;
+            const {firstname, lastname,mobileno,email,status,created_by,updated_by} = req.body;
            // let password = await bcrypt.hash(req.body.password,10)
             // await userSchema.findOne({email:email},(err,user)=>{
             //     res.send("Wait Coming"+err)
@@ -155,7 +155,7 @@ app.post('/register',async(req,res)=>{
             //     // }
             // })
             
-       res.send("Try Block");
+       res.send(req.body);
     }catch(error){
         res.send(error);
     };
