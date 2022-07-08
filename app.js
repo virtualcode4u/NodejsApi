@@ -126,7 +126,15 @@ app.post('/register',async(req,res)=>{
             //let password = await bcrypt.hash(req.body.password,10)
             const {firstname, lastname,mobileno,email,status,created_by,updated_by} = req.body;
             let password = await bcrypt.hash(req.body.password,10)
-            userSchema.findOne({email:email},(err,user)=>{
+            const user = await userSchema.findOne({ email: req.body.email });
+            if(user)
+            {
+                res.send("Welcome");
+            }
+            else {
+                res.status(401).json({ error: "User does not exist" });
+              }
+           // userSchema.findOne({email:email},(err,user)=>{
             //     res.send("Wait Coming"+err)
             //     // if(user){
                     
@@ -153,7 +161,7 @@ app.post('/register',async(req,res)=>{
             //     //         }
             //     //     })
             //      }
-             })
+            // })
             
     }catch(error){
         res.send(error);
