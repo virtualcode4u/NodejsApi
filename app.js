@@ -125,7 +125,7 @@ app.post('/register',async(req,res)=>{
         try{
             //let password = await bcrypt.hash(req.body.password,10)
             const {firstname, lastname,mobileno,email,status,created_by,updated_by} = req.body;
-           // let password = await bcrypt.hash(req.body.password,10)
+            let password = await bcrypt.hash(req.body.password,10)
             // await userSchema.findOne({email:email},(err,user)=>{
             //     res.send("Wait Coming"+err)
             //     // if(user){
