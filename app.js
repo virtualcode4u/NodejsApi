@@ -170,7 +170,7 @@ app.post('/register',async(req,res)=>{
 app.post('/login',async(req,res)=>{
     try{
     const body = req.body;
-    const user = await userSchema.findOne({ email: body.email }).select("email ").exec();
+    const user = await userSchema.findOne({ email: body.email }).select("email").exec();
     if (user) {
       // check user password with hashed password stored in the database
       const validPassword = await bcrypt.compare(body.password, user.password);
