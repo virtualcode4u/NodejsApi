@@ -23,9 +23,13 @@ const userSchema = new schema({
         type:String,
         required:true
     },
+    accesstype:{
+        type:String,
+        required:false
+    },
     status:{
         type:String,
-        required:true
+        required:false
     },
     created_by: {
         type: String, 
