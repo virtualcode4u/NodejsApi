@@ -170,18 +170,16 @@ app.post('/register',async(req,res)=>{
 app.post('/login',async(req,res)=>{
     try{
     const body = req.body;
-    const user = await userSchema.findOne({ email: body.email }).select("email").exec();
+    const user = await userSchema.findOne({ email: body.email });
     if (user) {
       // check user password with hashed password stored in the database
       const validPassword = await bcrypt.compare(body.password, user.password);
-
       if (validPassword) {
-        const getuser = await userSchema.find({ email: user.email }).select("email").exec();
-        Jwt.sign({getuser},jwtKey, {expiresIn:"1h"},(err,token)=>{
+        Jwt.sign({user},jwtKey, {expiresIn:"1h"},(err,token)=>{
             if(err){
                 res.send("Something went wrong try again later!")
             } else{
-                res.status(200).json({getuser,token:token});
+                res.status(200).json({user,token:token});
             }
             
         });
