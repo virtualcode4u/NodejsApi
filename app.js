@@ -174,12 +174,14 @@ app.post('/login',async(req,res)=>{
     if (user) {
       // check user password with hashed password stored in the database
       const validPassword = await bcrypt.compare(body.password, user.password);
+
       if (validPassword) {
-        Jwt.sign({user},jwtKey, {expiresIn:"1h"},(err,token)=>{
+        const getuser = await userSchema.find({ email: body.email }).select("email").exec();
+        Jwt.sign({getuser},jwtKey, {expiresIn:"1h"},(err,token)=>{
             if(err){
                 res.send("Something went wrong try again later!")
             } else{
-                res.status(200).json({user,token:token});
+                res.status(200).json({getuser,token:token});
             }
             
         });
