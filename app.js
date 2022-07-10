@@ -171,10 +171,14 @@ app.post('/login',async(req,res)=>{
     try{
     const body = req.body;
     const user = await userSchema.findOne({ email: body.email });
+    
     if (user) {
       // check user password with hashed password stored in the database
       const validPassword = await bcrypt.compare(body.password, user.password);
       if (validPassword) {
+        let user = await userSchema({
+            email
+        });
         Jwt.sign({user},jwtKey, {expiresIn:"1h"},(err,token)=>{
             if(err){
                 res.send("Something went wrong try again later!")
