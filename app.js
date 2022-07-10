@@ -176,7 +176,7 @@ app.post('/login',async(req,res)=>{
       const validPassword = await bcrypt.compare(body.password, user.password);
 
       if (validPassword) {
-        const getuser = await userSchema.find({ email: body.email }).select("email").exec();
+        const getuser = await userSchema.find({ email: user.email }).select("email").exec();
         Jwt.sign({getuser},jwtKey, {expiresIn:"1h"},(err,token)=>{
             if(err){
                 res.send("Something went wrong try again later!")
